@@ -12,47 +12,63 @@ import ShoeGrid from '../ShoeGrid';
 const ShoeIndex = ({ sortId, setSortId }) => {
   return (
     <Wrapper>
-      <MainColumn>
-        <Header>
-          <Title>Running</Title>
-          <Select
-            label="Sort"
-            value={sortId}
-            onChange={(ev) => setSortId(ev.target.value)}
-          >
-            <option value="newest">Newest Releases</option>
-            <option value="price">Price</option>
-          </Select>
-        </Header>
-        <Spacer size={34} />
-        <ShoeGrid />
-      </MainColumn>
-      <LeftColumn>
-        <Breadcrumbs>
-          <Breadcrumbs.Crumb href="/">Home</Breadcrumbs.Crumb>
-          <Breadcrumbs.Crumb href="/sale">Sale</Breadcrumbs.Crumb>
-          <Breadcrumbs.Crumb href="/sale/shoes">
-            Shoes
-          </Breadcrumbs.Crumb>
-        </Breadcrumbs>
-        <Spacer size={42} />
-        <ShoeSidebar />
-      </LeftColumn>
+
+    <MainColumn>
+      <Header>
+        <Title>Running</Title>
+        <Select
+          label="Sort"
+          value={sortId}
+          onChange={(ev) => setSortId(ev.target.value)}
+        >
+          <option value="newest">Newest Releases</option>
+          <option value="price">Price</option>
+        </Select>
+      </Header>
+      <Spacer size={34} />
+    </MainColumn>
+
+    <LeftColumn>
+      <Breadcrumbs>
+        <Breadcrumbs.Crumb href="/">Home</Breadcrumbs.Crumb>
+        <Breadcrumbs.Crumb href="/sale">Sale</Breadcrumbs.Crumb>
+        <Breadcrumbs.Crumb href="/sale/shoes">
+          Shoes
+        </Breadcrumbs.Crumb>
+      </Breadcrumbs>
+      <Spacer size={42} />
+      <ShoeSidebar />
+    </LeftColumn>
+      
     </Wrapper>
   );
 };
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  gap: 32px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: baseline;
+`;
 
-const LeftColumn = styled.div``;
+const LeftColumn = styled.div`
+  flex-basis: 248px;
+`;
 
-const MainColumn = styled.div``;
+const MainColumn = styled.div`
+  display: flex;
+  flex: 1;
+`;
 
-const Header = styled.header``;
+const Header = styled.header`
+  display: flex;
+  flex: 1;
+`;
 
 const Title = styled.h2`
   font-size: 1.5rem;
   font-weight: ${WEIGHTS.medium};
+  margin-right: auto;
 `;
 
 export default ShoeIndex;
